@@ -1,12 +1,12 @@
-const Pandanite = require('./index');
+const MakerCoin = require('./index');
 
-const pandaniteCrypto = new Pandanite.crypto();
-const pandaniteApi = new Pandanite.api('https://pandanite.net');
+const makerCoinCrypto = new MakerCoin.crypto();
+const makerCoinApi = new MakerCoin.api('http://212.147.106.225:3001');
 
 
 (async () => {
 
-	/* Pandanite Crypto Methods */
+	/* MakerCoin Crypto Methods */
 
 	/* generateNewAddress */
 
@@ -16,7 +16,7 @@ const pandaniteApi = new Pandanite.api('https://pandanite.net');
 
 	try {
 
-		newAddress = pandaniteCrypto.generateNewAddress();
+		newAddress = makerCoinCrypto.generateNewAddress();
 
 		console.log(newAddress);
 
@@ -33,7 +33,7 @@ const pandaniteApi = new Pandanite.api('https://pandanite.net');
 
 	try {
 
-		let restoreAddress = pandaniteCrypto.generateAddressFromMnemonic(newAddress.mnemonic);
+		let restoreAddress = makerCoinCrypto.generateAddressFromMnemonic(newAddress.mnemonic);
 
 		console.log(restoreAddress);
 
@@ -50,7 +50,7 @@ const pandaniteApi = new Pandanite.api('https://pandanite.net');
 
 	try {
 
-		let validateAddress = pandaniteCrypto.validateAddress(newAddress.address);
+		let validateAddress = makerCoinCrypto.validateAddress(newAddress.address);
 
 		console.log(validateAddress);
 
@@ -67,7 +67,7 @@ const pandaniteApi = new Pandanite.api('https://pandanite.net');
 
 	try {
 
-		let createSignedTransaction = pandaniteCrypto.createSignedTransaction(newAddress.address, 1, newAddress.publicKey, newAddress.privateKey);
+		let createSignedTransaction = makerCoinCrypto.createSignedTransaction(newAddress.address, 1, newAddress.publicKey, newAddress.privateKey);
 
 		console.log(createSignedTransaction);
 
@@ -86,7 +86,7 @@ const pandaniteApi = new Pandanite.api('https://pandanite.net');
 
 	try {
 
-		signMessage = pandaniteCrypto.signMessage('test', newAddress.publicKey, newAddress.privateKey);
+		signMessage = makerCoinCrypto.signMessage('test', newAddress.publicKey, newAddress.privateKey);
 
 		console.log(signMessage);
 
@@ -103,7 +103,7 @@ const pandaniteApi = new Pandanite.api('https://pandanite.net');
 
 	try {
 
-		let verifyMessage = pandaniteCrypto.verifyMessage('test', newAddress.publicKey, signMessage);
+		let verifyMessage = makerCoinCrypto.verifyMessage('test', newAddress.publicKey, signMessage);
 
 		console.log(verifyMessage);
 
@@ -120,7 +120,7 @@ const pandaniteApi = new Pandanite.api('https://pandanite.net');
 
 	try {
 
-		let walletAddressFromPublicKey = pandaniteCrypto.walletAddressFromPublicKey(newAddress.publicKey);
+		let walletAddressFromPublicKey = makerCoinCrypto.walletAddressFromPublicKey(newAddress.publicKey);
 
 		console.log(walletAddressFromPublicKey);
 
@@ -134,7 +134,7 @@ const pandaniteApi = new Pandanite.api('https://pandanite.net');
 
 
 
-/* Pandanite API Methods */
+/* makerCoin API Methods */
 
 	/* getNetworkInfo */
 
@@ -144,7 +144,7 @@ const pandaniteApi = new Pandanite.api('https://pandanite.net');
 	
 	try {
 	
-		getNetworkInfo = await pandaniteApi.getNetworkInfo();
+		getNetworkInfo = await makerCoinApi.getNetworkInfo();
 
 		console.log(getNetworkInfo);
 
@@ -161,7 +161,7 @@ const pandaniteApi = new Pandanite.api('https://pandanite.net');
 
 	try {
 	
-		let getBlock = await pandaniteApi.getBlock(getNetworkInfo.blockheight);
+		let getBlock = await makerCoinApi.getBlock(getNetworkInfo.blockheight);
 
 		console.log(getBlock);
 
@@ -178,7 +178,7 @@ const pandaniteApi = new Pandanite.api('https://pandanite.net');
 
 	try {
 	
-		let getTransaction = await pandaniteApi.getTransaction('616635cb13db0bd0e98e39af2f490ce7d33833f268ec3a0908a9f72267328a42')
+		let getTransaction = await makerCoinApi.getTransaction('616635cb13db0bd0e98e39af2f490ce7d33833f268ec3a0908a9f72267328a42')
 
 		console.log(getTransaction);
 
@@ -195,7 +195,7 @@ const pandaniteApi = new Pandanite.api('https://pandanite.net');
 
 	try {
 	
-		let getBalance = await pandaniteApi.getBalance(newAddress.address);
+		let getBalance = await makerCoinApi.getBalance(newAddress.address);
 
 		console.log(getBalance);
 
@@ -212,7 +212,7 @@ const pandaniteApi = new Pandanite.api('https://pandanite.net');
 
 	try {
 	
-		let getFeeEstimate = await pandaniteApi.getFeeEstimate();
+		let getFeeEstimate = await makerCoinApi.getFeeEstimate();
 
 		console.log(getFeeEstimate);
 	
@@ -229,7 +229,7 @@ const pandaniteApi = new Pandanite.api('https://pandanite.net');
 
 	try {
 	
-		let getTransactionsForAddress = await pandaniteApi.getTransactionsForAddress('006185E4F134C265DEFBF4DA270E6D504A8ACC45C5DA5F7528');
+		let getTransactionsForAddress = await makerCoinApi.getTransactionsForAddress('006185E4F134C265DEFBF4DA270E6D504A8ACC45C5DA5F7528');
 
 		console.log(getTransactionsForAddress);
 
@@ -246,7 +246,7 @@ const pandaniteApi = new Pandanite.api('https://pandanite.net');
 
 	try {
 	
-		let getRecentTransactions = await pandaniteApi.getRecentTransactions();
+		let getRecentTransactions = await makerCoinApi.getRecentTransactions();
 
 		console.log(getRecentTransactions);
 	

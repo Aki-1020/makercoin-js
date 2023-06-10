@@ -1,12 +1,12 @@
 {
-  "name": "pandanite-js",
+  "name": "makercoin-js",
   "version": "1.0.0",
-  "description": "Nodejs Module for Interacting with Pandanite Crypto",
+  "description": "Nodejs Module for Interacting with MakerCoin Crypto",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "https://github.com/pandanite-crypto/pandanite-js",
+  "repository": "https://github.com/Aki-1020/makercoin-js",
   "author": "Michael Osullivan",
   "license": "CC0-1.0",
   "dependencies": {

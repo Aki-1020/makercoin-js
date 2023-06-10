@@ -4,11 +4,11 @@ const ed25519   = require('ed25519');
 const crypto    = require('crypto');
 const bip39     = require('bip39');
 
-class PandaniteApi {
+class MakerCoinApi {
 
     /*
     
-        Typical host format for bamboo node is http://xxx.xxx.xxx.xxx:3000
+        Typical host format for node is http://xxx.xxx.xxx.xxx:3001
         
         All api calls return promises
     
@@ -480,7 +480,7 @@ class PandaniteApi {
 
 }
 
-class PandaniteCrypto {
+class MakerCoinCrypto {
 
     constructor() {
 
@@ -522,11 +522,9 @@ class PandaniteCrypto {
 
             let hash4 = crypto.createHash('sha256').update(hash3).digest();
 
-            let checksum = hash4[0];
-
             let addressArray = [];
 
-            addressArray[0] = '00';
+            addressArray[0] = '01';
             for(let i = 1; i <= 20; i++) 
             {
                 addressArray[i] = pad(hash2[i-1].toString(16), 2);
@@ -593,11 +591,9 @@ console.log(e);
 
                 let hash4 = crypto.createHash('sha256').update(hash3).digest();
 
-                let checksum = hash4[0];
-
                 let addressArray = [];
 
-                addressArray[0] = '00';
+                addressArray[0] = '01';
                 for(let i = 1; i <= 20; i++) 
                 {
                     addressArray[i] = pad(hash2[i-1].toString(16), 2);
@@ -638,7 +634,7 @@ console.log(e);
 
         try {
 
-            var pattern = /^[a-fA-F0-9]{50}$/;
+            var pattern = /^01[a-fA-F0-9]{48}$/;
             
             var isvalid = pattern.test(address);
             
@@ -696,11 +692,9 @@ console.log(e);
 
             let hash4 = crypto.createHash('sha256').update(hash3).digest();
 
-            let checksum = hash4[0];
-
             let addressArray = [];
 
-            addressArray[0] = '00';
+            addressArray[0] = '01';
             for(let i = 1; i <= 20; i++) 
             {
                 addressArray[i] = pad(hash2[i-1].toString(16), 2);
@@ -851,11 +845,9 @@ console.log(e);
 
             let hash4 = crypto.createHash('sha256').update(hash3).digest();
     
-            let checksum = hash4[0];
-    
             let address = [];
     
-            address[0] = '00';
+            address[0] = '01';
             for(let i = 1; i <= 20; i++) 
             {
                 address[i] = pad(hash2[i-1].toString(16), 2);
@@ -875,4 +867,4 @@ console.log(e);
 
 }
 
-module.exports = {api: PandaniteApi, crypto: PandaniteCrypto};
+module.exports = {api: MakerCoinApi, crypto: MakerCoinCrypto};
