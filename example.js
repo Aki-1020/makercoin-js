@@ -178,7 +178,7 @@ const makerCoinApi = new MakerCoin.api('http://212.147.106.225:3001');
 
 	try {
 	
-		let getTransaction = await makerCoinApi.getTransaction('616635cb13db0bd0e98e39af2f490ce7d33833f268ec3a0908a9f72267328a42')
+		let getTransaction = await makerCoinApi.getTransaction('47813de1c2d15c14e31d7323f7737eb50ee4ba34037fada437975f7c7d7ae384')
 
 		console.log(getTransaction);
 
@@ -229,7 +229,7 @@ const makerCoinApi = new MakerCoin.api('http://212.147.106.225:3001');
 
 	try {
 	
-		let getTransactionsForAddress = await makerCoinApi.getTransactionsForAddress('006185E4F134C265DEFBF4DA270E6D504A8ACC45C5DA5F7528');
+		let getTransactionsForAddress = await makerCoinApi.getTransactionsForAddress('013757E67931BD5F139F80A03899E7F89D3DB486F2860C7F53');
 
 		console.log(getTransactionsForAddress);
 
